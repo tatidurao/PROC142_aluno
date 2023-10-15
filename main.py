@@ -59,10 +59,8 @@ def popular_articles():
     for index , row in output.iterrows():
         _d = {
             "url": row['url'],
-            "title": row['title'],
-            "text": row['text'],
-            "lang": row['lang'],
-            "total_events": row['total_events']
+            #busque para title, text, lang e total_events
+            ]
         }
         article_info.append(_d)
 
@@ -78,11 +76,21 @@ def recommend_articles():
     all_recommended = pd.DataFrame(columns=col_names)
     
     for article in liked_articles:
-        output = get_recommendations(article["contentId"])
-        all_recommended=all_recommended.append(output)
+        #escolha a opção correta para fazer a recomendação
+        #output = get_recommendations(article[])
+        #all_recommended=all_recommended.append()
+        
+        #output = get_recommendations(["contentId"])
+        #all_recommended=all_recommended.append()
+        
+        #output = get_recommendations(article["contentId"])
+        #all_recommended=all_recommended.append(output)
+    #Escolha a opção correta para remover duplicidade
+    #all_recommended.drop_duplicates(subset=[])
+    #all_recommended.drop_duplicates(subset=["title"],inplace=True)
+    #all_recommended.drop_duplicates(subset=["title"],inplace=False)
 
-    all_recommended.drop_duplicates(subset=["title"],inplace=True)
-
+    
     recommended_data = []
 
     for index, row in all_recommended.iterrows():
